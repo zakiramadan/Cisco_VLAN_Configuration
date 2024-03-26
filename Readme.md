@@ -1,5 +1,7 @@
 # Konfigurasi VLAN Menggunakan Packet Tracer
 
+![App Screenshot](/Image/1.png)
+
 ## Tabel Penyediaan Alamat
 
 | Perangkat | Antarmuka | Alamat IP    | Subnet Mask   | VLAN |
