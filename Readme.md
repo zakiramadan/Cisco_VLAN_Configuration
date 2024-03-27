@@ -29,15 +29,36 @@ VLAN (Virtual Local Area Networks) digunakan untuk segmentasi logis jaringan, me
 
 Pada S1, gunakan perintah yang menampilkan semua VLAN yang dikonfigurasi. Secara default, semua antarmuka ditugaskan ke VLAN 1.
 
+![App Screenshot](/Image/Langkah%201.png)
+
 ### Langkah 2: Verifikasi konektivitas antara PC di jaringan yang sama
 
 Perhatikan bahwa setiap PC dapat melakukan ping ke PC lain yang berbagi subnet yang sama.
 
 - PC1 dapat melakukan ping ke PC4
+
+![App Screenshot](/Image/PC1%20dapat%20melakukan%20ping%20ke%20PC4.png)
+
 - PC2 dapat melakukan ping ke PC5
+
+![App Screenshot](/Image/PC2%20dapat%20melakukan%20ping%20ke%20PC5.png)
+
 - PC3 dapat melakukan ping ke PC6
 
+![App Screenshot](/Image/PC3%20dapat%20melakukan%20ping%20ke%20PC6.png)
+
 Ping ke host di jaringan lain gagal.
+
+![App Screenshot](/Image/Cek%20Status.png)
+
+**Pertanyaan:** Apa manfaat yang bisa diberikan VLAN ke jaringan?
+
+Penggunaan Virtual LAN (VLAN) memberikan beberapa manfaat signifikan bagi jaringan, termasuk:
+
+- **Keamanan**: Memungkinkan administrator untuk mengendalikan akses antara perangkat-perangkat dalam segmen yang terisolasi.
+- **Pengurangan Biaya**: Mengurangi biaya investasi awal dan pemeliharaan infrastruktur jaringan.
+- **Performa yang Tinggi**: Mengurangi beban lalu lintas jaringan dan mencegah terjadinya broadcast storm.
+- **Meningkatkan Efisiensi Staff IT**: Mempermudah manajemen proyek dan tugas administratif dengan mengelompokkan perangkat berdasarkan fungsi atau departemen. management yaitu adalah keuntungan dari penggunaan vlan
 
 ## Bagian 2: Konfigurasi VLAN
 
@@ -52,6 +73,8 @@ S1#(config)# vlan 10
 S1#(config-vlan)# name Faculty/Staff
 ```
 
+![App Screenshot](/Image/3.png)
+
 b. Buat sisa VLAN.
 
 - VLAN 20: Mahasiswa
@@ -59,17 +82,29 @@ b. Buat sisa VLAN.
 - VLAN 99: Manajemen&Native
 - VLAN 150: VOICE
 
+![App Screenshot](/Image/4.png)
+
 ### Langkah 2: Verifikasi Konfigurasi VLAN
 
 **Pertanyaan:** Perintah mana yang hanya akan menampilkan nama VLAN, status, dan port yang terkait pada sebuah switch?
+
+![App Screenshot](/Image/5.png)
 
 ### Langkah 3: Buat VLAN pada S2 dan S3
 
 Gunakan perintah yang sama dari Langkah 1 untuk membuat dan memberi nama VLAN yang sama pada S2 dan S3.
 
+![App Screenshot](/Image/6.png)
+
+![App Screenshot](/Image/7.png)
+
 ### Langkah 4: Verifikasi Konfigurasi VLAN
 
 Tutup jendela konfigurasi.
+
+![App Screenshot](/Image/8.png)
+
+![App Screenshot](/Image/9.png)
 
 ## Bagian 3: Menetapkan VLAN ke Port
 
@@ -85,18 +120,33 @@ S2(config-if)# switchport mode access
 S2(config-if)# switchport access vlan 10
 ```
 
+![App Screenshot](/Image/10.png)
+
 b. Tetapkan port yang tersisa ke VLAN yang sesuai.
 
 - VLAN 20: FastEthernet 0/18
+
+![App Screenshot](/Image/13.png)
+
 - VLAN 30: FastEthernet 0/6
+
+![App Screenshot](/Image/14.png)
 
 ### Langkah 2: Menetapkan VLAN ke port aktif pada S3
 
 S3 menggunakan penugasan port akses VLAN yang sama seperti S2. Konfigurasikan antarmuka sebagai port akses dan tetapkan VLAN seperti berikut:
 
 - VLAN 10: FastEthernet 0/11
+
+![App Screenshot](/Image/15.png)
+
 - VLAN 20: FastEthernet 0/18
+
+![App Screenshot](/Image/16.png)
+
 - VLAN 30: FastEthernet 0/6
+
+![App Screenshot](/Image/17.png)
 
 ### Langkah 3: Menetapkan VLAN VOICE ke FastEthernet 0/11 pada S3
 
@@ -108,6 +158,8 @@ S3(config-if)# mls qos trust cos
 S3(config-if)# switchport voice vlan 150
 ```
 
+![App Screenshot](/Image/18.png)
+
 ### Langkah 4: Verifikasi kehilangan konektivitas
 
 Sebelumnya, PC yang berbagi jaringan yang sama dapat saling melakukan ping.
@@ -117,6 +169,10 @@ Studi output dari perintah berikut di S2 dan jawab pertanyaan berikut berdasarka
 ```bash
 S2# show vlan brief
 ```
+
+![App Screenshot](/Image/19.png)
+
+maka akan tampil "VOICE" aktifnya vlan 150
 
 Pertanyaan:
 
@@ -145,5 +201,7 @@ Untuk menyelesaikan masalah ketidakberhasilan ping antara PC1 dan PC4 setelah ko
 Setelah melakukan langkah-langkah di atas, ping antara PC1 dan PC4 seharusnya berhasil jika masalahnya telah diatasi dengan benar.
 
 ## Kesimpulan:
+
+![App Screenshot](/Image/20.png)
 
 Dalam aktivitas konfigurasi VLAN dengan Packet Tracer, langkah-langkah meliputi verifikasi konfigurasi VLAN default, pembuatan dan penamaan VLAN, serta penugasan VLAN ke port-port aktif. VLAN membantu dalam administrasi grup-grup logis pada jaringan dan memungkinkan manajemen yang lebih efisien.
